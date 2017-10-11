@@ -42,6 +42,8 @@ public class Delete_staff extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 200));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
         jLabel1.setText("Delete Record");
@@ -78,23 +80,22 @@ public class Delete_staff extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(72, 72, 72)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jLabel2)
+                        .addGap(72, 72, 72)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,48 +107,48 @@ public class Delete_staff extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Staff_main SM=new Staff_main();
-    SM.setVisible(true);
-    this.setVisible(false);         // TODO add your handling code here:
+        Staff_main SM=new Staff_main();
+        SM.setVisible(true);
+        this.setVisible(false);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-   View_staff VS=new View_staff();
-   VS.setVisible(true);
-   this.setVisible(false);       // TODO add your handling code here:
+        View_staff VS=new View_staff();
+        VS.setVisible(true);
+        this.setVisible(false);       // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    String id = jTextField1.getText();
-    try {
-      Class.forName("java.sql.Driver");
-      String UID = "";
-      String PWD = "";
-      String Sql_URL = "jdbc:mysql://localhost:3306/test" ;
-      Connection con = DriverManager.getConnection(Sql_URL, UID, PWD);
-      Statement stmnt = con.createStatement();
-      String sql = "delete from Staff where staffid='" +id+ "';" ;
-      stmnt.executeUpdate(sql);
-      JOptionPane.showMessageDialog(null,"Deleted Successfully.");
+        String id = jTextField1.getText();
+        try {
+            //Class.forName("java.sql.Driver");
+            String UID = "root";
+            String PWD = "mysql";
+            String Sql_URL = "jdbc:mysql://localhost:3306/test" ;
+            Connection con = DriverManager.getConnection(Sql_URL, UID, PWD);
+            Statement stmnt = con.createStatement();
+            String sql = "delete from Staff where staffid='" +id+ "';" ;
+            stmnt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Deleted Successfully.");
 
-      stmnt.close();
-      con.close();
-    }
-      catch(Exception e){
-      JOptionPane.showMessageDialog(null,"Error, " +e);
-      }       // TODO add your handling code here:
+            stmnt.close();
+            con.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error, " +e);
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

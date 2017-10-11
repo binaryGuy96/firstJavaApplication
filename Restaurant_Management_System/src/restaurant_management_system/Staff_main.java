@@ -44,6 +44,8 @@ public class Staff_main extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 200));
+        setResizable(false);
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -133,19 +135,19 @@ public class Staff_main extends javax.swing.JFrame {
                         .addGap(93, 93, 93)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jButton1)
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton2)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(jLabel1)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton1)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton2)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton3)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,19 +158,19 @@ public class Staff_main extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
@@ -176,32 +178,36 @@ System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     Main_page MP=new Main_page();
-     MP.setVisible(true);
-     this.setVisible(false);
-        // TODO add your handling code here:
+        Main_page MP=new Main_page();
+        MP.setVisible(true);
+        this.setVisible(false);
+           // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   if(jRadioButton1.isSelected()){
-   New_staff NS=new New_staff();
-   NS.setVisible(true);
-   this.setVisible(false);}
+        if(jRadioButton1.isSelected()){
+            New_staff NS=new New_staff();
+            NS.setVisible(true);
+            this.setVisible(false);
+        }
 
-   else if(jRadioButton2.isSelected()){
-   Update_staff US=new Update_staff();
-   US.setVisible(true);
-   this.setVisible(false);}
+        else if(jRadioButton2.isSelected()){
+            Update_staff US=new Update_staff();
+            US.setVisible(true);
+            this.setVisible(false);
+        }
 
-   else if(jRadioButton3.isSelected()){
-   View_staff VS=new View_staff();
-   VS.setVisible(true);
-   this.setVisible(false);}
+        else if(jRadioButton3.isSelected()){
+            View_staff VS=new View_staff();
+            VS.setVisible(true);
+            this.setVisible(false);
+        }
 
-   else if(jRadioButton4.isSelected()){
-   Delete_staff DS=new Delete_staff();
-   DS.setVisible(true);
-   this.setVisible(false);}
+        else if(jRadioButton4.isSelected()){
+            Delete_staff DS=new Delete_staff();
+            DS.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

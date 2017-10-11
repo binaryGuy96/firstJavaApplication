@@ -41,6 +41,9 @@ public class View_staff extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setLocation(new java.awt.Point(500, 200));
+        setResizable(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,19 +87,22 @@ public class View_staff extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(243, 243, 243)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(261, 261, 261)
+                                .addComponent(jButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(229, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(286, 286, 286))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(jLabel1)
-                .addContainerGap(274, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,39 +122,39 @@ public class View_staff extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Staff_main SM=new Staff_main();
-    SM.setVisible(true);
-    this.setVisible(false);           // TODO add your handling code here:
+        Staff_main SM=new Staff_main();
+        SM.setVisible(true);
+        this.setVisible(false);           // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      DefaultTableModel model= (DefaultTableModel) jTable1.getModel();
-      try {
-      Class.forName("java.sql.Driver");
-      String UID = "";
-      String PWD = "";
-      String Sql_URL = "jdbc:mysql://localhost:3306/test" ;
-      Connection con = DriverManager.getConnection(Sql_URL, UID, PWD);
-      Statement stmnt = con.createStatement();
-      String query = "select * from Staff;";
-      ResultSet rs= stmnt.executeQuery(query);
-      while(rs.next()){
-      String sid = rs.getString("StaffID");
-      String snm = rs.getString("Name");
-      String sg = rs.getString("Gender");
-      String sa = rs.getString("Age");
-      String sc = rs.getString("Contact");
-      String sp = rs.getString("Post");
-      String sw = rs.getString("Wage");
-      model.addRow(new Object[] {sid,snm,sg,sa,sc,sp,sw});
-      }
-      rs.close();
-      stmnt.close();
-      con.close();
-      }
-      catch(Exception e){
-      JOptionPane.showMessageDialog(null,"Error, " +e);
-      }        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        try {
+            //Class.forName("java.sql.Driver");
+            String UID = "root";
+            String PWD = "mysql";
+            String Sql_URL = "jdbc:mysql://localhost:3306/test" ;
+            Connection con = DriverManager.getConnection(Sql_URL, UID, PWD);
+            Statement stmnt = con.createStatement();
+            String query = "select * from Staff;";
+            ResultSet rs = stmnt.executeQuery(query);
+                while(rs.next()){
+                String sid = rs.getString("StaffID");
+                String snm = rs.getString("Name");
+                String sg = rs.getString("Gender");
+                String sa = rs.getString("Age");
+                String sc = rs.getString("Contact");
+                String sp = rs.getString("Post");
+                String sw = rs.getString("Wage");
+                model.addRow(new Object[] {sid,snm,sg,sa,sc,sp,sw});
+            }
+            rs.close();
+            stmnt.close();
+            con.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error, " +e);
+        }     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

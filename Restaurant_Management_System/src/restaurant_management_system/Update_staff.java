@@ -50,6 +50,8 @@ public class Update_staff extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 200));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
         jLabel1.setText("Update Details");
@@ -106,36 +108,36 @@ public class Update_staff extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField5)
                             .addComponent(jTextField4)
                             .addComponent(jTextField3)
                             .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addGap(11, 11, 11)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
-                        .addGap(22, 22, 22))))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel1)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,62 +164,60 @@ public class Update_staff extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-   View_staff VS=new View_staff();
-   VS.setVisible(true);
-   this.setVisible(false);
-        // TODO add your handling code here:
+        View_staff VS=new View_staff();
+        VS.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    Staff_main SM=new Staff_main();
-    SM.setVisible(true);
-    this.setVisible(false);         // TODO add your handling code here:
+        Staff_main SM=new Staff_main();
+        SM.setVisible(true);
+        this.setVisible(false);        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-jTextField1.setText("");
-jTextField2.setText("");
-jTextField3.setText("");
-jTextField4.setText("");
-jTextField5.setText("");// TODO add your handling code here:
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    int wage = Integer.parseInt(jTextField5.getText());
-    int age = Integer.parseInt(jTextField3.getText());
-    int cont = Integer.parseInt(jTextField2.getText());
-    String post = jTextField4.getText();
-    String id = jTextField1.getText();
-    try {
-      Class.forName("java.sql.Driver");
-      String UID = "";
-      String PWD = "";
-      String Sql_URL = "jdbc:mysql://localhost:3306/test" ;
-      Connection con = DriverManager.getConnection(Sql_URL, UID, PWD);
-      Statement stmnt = con.createStatement();
-      String sql = "insert into Staff values(update staff set age=" +age+ ",contact=" +age+ ",Post=" +post+ ",Wage=" +wage+ " where StafID=" +id+ ");" ;
-      stmnt.executeUpdate(sql);
-      JOptionPane.showMessageDialog(null,"Updated Successfully.");
+        int wage = Integer.parseInt(jTextField5.getText());
+        int age = Integer.parseInt(jTextField3.getText());
+        long cont = Long.parseLong(jTextField2.getText());
+        String post = jTextField4.getText();
+        String id = jTextField1.getText();
+        try {
+            //Class.forName("java.sql.Driver");
+            String UID = "root";
+            String PWD = "mysql";
+            String Sql_URL = "jdbc:mysql://localhost:3306/test" ;
+            Connection con = DriverManager.getConnection(Sql_URL, UID, PWD);
+            Statement stmnt = con.createStatement();
+            String sql = "update staff set age=" +age+ ",contact=" +cont+ ",Post='" +post+ "',Wage=" +wage+ " where StaffID='" +id+ "';" ;
+            stmnt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Updated Successfully.");
 
-      stmnt.close();
-      con.close();
-    }
-      catch(Exception e){
-      JOptionPane.showMessageDialog(null,"Error, " +e);
-      }    // TODO add your handling code here:
+            stmnt.close();
+            con.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error, " +e);
+        }    // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
